@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff" >
+
+    <include
+        android:id="@+id/actionbar"
+        layout="@layout/actionbar" />
+
+    <!-- 邮件显示内容   START -->
+
+    <ScrollView
+        android:id="@+id/contentscrollview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/line2"
+        android:layout_below="@+id/actionbar" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/titletextview"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:text="我是一个主题"
+                android:textColor="#000000"
+                android:textSize="23dp" />
+
+            <LinearLayout
+                android:id="@+id/layout1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/titletextview"
+                android:layout_below="@+id/titletextview"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:text="发自"
+                    android:textColor="#a6a6a6"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/sendertextview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="XXX"
+                    android:textColor="#a6a6a6"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/timetextview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="06-22 10:35"
+                    android:textColor="#a6a6a6"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/showdetailtextview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/titletextview"
+                android:layout_marginRight="15dp"
+                android:text="显示详情"
+                android:textColor="#a6a6a6"
+                android:textSize="15dp" />
+
+            <!-- 收取者信息 START -->
+
+            <LinearLayout
+                android:id="@+id/layout2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/titletextview"
+                android:layout_alignRight="@+id/showdetailtextview"
+                android:layout_below="@+id/layout1"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:layoutAnimation="@anim/box_anim"
+                android:visibility="gone" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:text="收取"
+                    android:textColor="#a6a6a6"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/recevicertextview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="XXX"
+                    android:textColor="#a6a6a6"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+            <!-- 收取者信息 END -->
+
+            <View
+                android:id="@+id/line1"
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:layout_below="@+id/layout2"
+                android:layout_margin="15dp"
+                android:background="#dfdfdf" />
+
+            <TextView
+                android:id="@+id/contenttextview"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/line1"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="我是一封邮件"
+                android:textColor="#333333"
+                android:textSize="17dp" />
+        </RelativeLayout>
+    </ScrollView>
+
+    <!-- 邮件显示内容  END -->
+
+
+    <!-- 下方操作栏 START -->
+
+    <View
+        android:id="@+id/line2"
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:layout_above="@+id/layout3"
+        android:background="#b2b2b2" />
+
+    <LinearLayout
+        android:id="@+id/layout3"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="#f3f7fa"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/signimageview"
+            android:layout_width="50dp"
+            android:layout_height="fill_parent"
+            android:padding="15dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/test_sign" />
+
+        <ImageView
+            android:id="@+id/replyimageview"
+            android:layout_width="50dp"
+            android:layout_height="fill_parent"
+            android:padding="15dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/test_reply" />
+
+        <ImageView
+            android:id="@+id/deleteimageview"
+            android:layout_width="50dp"
+            android:layout_height="fill_parent"
+            android:padding="15dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/test_delete" />
+    </LinearLayout>
+
+    <!-- 下方操作栏 END -->
+
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="23dp"
+        android:layout_height="23dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/errortextview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="#a6a6a6"
+        android:textSize="17dp"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/powinlayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+</RelativeLayout>

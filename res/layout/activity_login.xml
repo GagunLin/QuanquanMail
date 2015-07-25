@@ -1,0 +1,278 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".LoginActivity" >
+
+    <LinearLayout
+        android:id="@+id/selectLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/curriculum_lastweek"
+            android:layout_width="84dp"
+            android:layout_height="84dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_launcher" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:text="欢迎"
+            android:textColor="#9FA0A0"
+            android:textSize="14dp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/selectSchoolLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/selectLayout"
+        android:layout_marginRight="14dp"
+        android:layout_marginTop="53dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/selectSchoolText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="邮箱手机号登录"
+            android:textColor="#9fa0a0"
+            android:textSize="13dp" />
+
+        <ImageView
+            android:layout_width="11dp"
+            android:layout_height="11dp"
+            android:background="@drawable/loginnexticon" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/line1"
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/selectSchoolLayout"
+        android:layout_marginTop="30dp"
+        android:background="#F1F1F1"
+        android:orientation="vertical" />
+
+    <LinearLayout
+        android:id="@+id/EditLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/line1"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/stuSChoolLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:background="#ffffff" >
+
+            <View
+                android:id="@+id/Schoolnormal"
+                android:layout_width="17dp"
+                android:layout_height="18dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:background="@drawable/login_school" />
+
+            <View
+                android:id="@+id/SchoolPutin"
+                android:layout_width="17dp"
+                android:layout_height="18dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:background="@drawable/login_school_putin"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/SchoolTev"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="62dp"
+                android:background="#00000000"
+                android:textColor="#3E3A39"
+                android:textSize="14dp" />
+
+            <ImageView
+                android:id="@+id/line2"
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="13dp"
+                android:background="#EFEFEF" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/stuIDLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:background="#ffffff" >
+
+            <View
+                android:id="@+id/stuIDnormal"
+                android:layout_width="17dp"
+                android:layout_height="18dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:background="@drawable/login_username" />
+
+            <View
+                android:id="@+id/stuIDPutin"
+                android:layout_width="17dp"
+                android:layout_height="18dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:background="@drawable/login_username_putin"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/stuIDEdit"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="62dp"
+                android:background="#00000000"
+                android:hint="登录名"
+                android:singleLine="true"
+                android:textColor="#3E3A39"
+                android:textSize="14dp" />
+
+            <ImageView
+                android:id="@+id/line3"
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="13dp"
+                android:background="#EFEFEF" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/passLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:background="#ffffff" >
+
+            <View
+                android:id="@+id/passNormal"
+                android:layout_width="17dp"
+                android:layout_height="18dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:background="@drawable/login_password" />
+
+            <View
+                android:id="@+id/passPutin"
+                android:layout_width="17dp"
+                android:layout_height="18dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:background="@drawable/login_password_putin"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/passEdit"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="62dp"
+                android:background="#00000000"
+                android:hint="密码"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:textColor="#3E3A39"
+                android:textSize="14dp" />
+        </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/register_Tev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:gravity="center_horizontal|bottom"
+            android:text="注册账号"
+            android:visibility="gone"
+            android:textColor="#9FA0A0"
+            android:textSize="13dp" />
+
+       <!--  <TextView
+            android:id="@+id/ForgetPass_Tev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:gravity="center_horizontal|bottom"
+            android:text="忘记密码"
+            android:textColor="#9FA0A0"
+            android:textSize="13dp" /> -->
+    </LinearLayout>
+    
+    </LinearLayout>
+     <TextView
+        android:id="@+id/ForgetPass_Tev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/EditLayout"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="10dp"
+        android:background="#00000000"
+        android:text="忘记密码     "
+        android:visibility="gone"
+        android:textColor="#9FA0A0"
+        android:textSize="13dp" />
+
+    <Button
+        android:id="@+id/signin_button"
+        android:layout_width="fill_parent"
+        android:layout_height="42dp"
+        android:layout_below="@id/ForgetPass_Tev"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="23dp"
+        android:background="#00A0E9"
+        android:text="登录"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/selectSchool_Btn"
+        android:layout_width="fill_parent"
+        android:layout_height="42dp"
+        android:layout_below="@id/signin_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginTop="33dp"
+        android:background="@drawable/login_button_empty"
+        android:text="选择学校登录"
+        android:textColor="#6ac4f1"
+        android:visibility="gone" />
+
+</RelativeLayout>

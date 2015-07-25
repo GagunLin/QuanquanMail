@@ -1,0 +1,23 @@
+<resources>
+
+   
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <item name="android:actionBarStyle">@style/myActionBarstyle</item>
+    </style>
+
+    <style name="myActionBarstyle" parent="android:Widget.ActionBar">
+        <item name="android:background">#25b6ed</item>
+    </style>
+
+    <style name="popupwin" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/popupin_anim</item>
+        <item name="android:windowExitAnimation">@anim/popupout_anim</item>
+    </style>
+  
+
+</resources>

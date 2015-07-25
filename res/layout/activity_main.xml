@@ -1,0 +1,77 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f9f9f9"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+    
+    <include 
+        android:id="@+id/actionbar"
+        layout="@layout/actionbar" />
+    
+    <TextView android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="15dp"
+        android:paddingBottom="7dp"
+        android:text="文件夹"
+        android:textSize="15dp"
+        android:textColor="#a6a6a6"
+        android:gravity="bottom|start"/>
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layoutAnimation="@anim/box_anim"
+        android:orientation="vertical">
+        
+        <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="#dfdfdf" />
+    
+    <include 
+        android:id="@+id/ReceBox"
+        android:tag="ReceBox"
+        layout="@layout/item" />
+    
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="#dfdfdf" />
+    
+    <include 
+        android:id="@+id/SendBox"
+        android:tag="SendBox"
+        layout="@layout/item" />
+    
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="#dfdfdf" />
+    
+    <include 
+        android:id="@+id/DraftsBox"
+        android:tag="DraftsBox"
+        layout="@layout/item" />
+    
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="#dfdfdf" />
+    
+    <include 
+        android:id="@+id/GarbageBox"
+        android:tag="GarbageBox"
+        layout="@layout/item" />
+    
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="#dfdfdf" />"
+        
+    </LinearLayout>
+
+    
+
+</LinearLayout>

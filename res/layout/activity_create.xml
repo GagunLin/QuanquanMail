@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="#FFFFFF">
+    
+    <include
+        android:id="@+id/actionbar"
+        layout="@layout/actionbar" />
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/actionbar"
+        android:orientation="vertical">
+        
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:orientation="horizontal">
+            
+            <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"    
+		        android:text="收件人："
+		        android:textSize="15dp"
+		        android:textColor="#a6a6a6"
+		        android:layout_gravity="center_vertical"/>
+            
+            <EditText 
+                android:id="@+id/create_receiver"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="15dp"
+                android:background="#FFFFFF"
+                android:layout_gravity="center_vertical"/>
+            
+        </LinearLayout>
+        
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2px"
+            android:layout_marginTop="1dp"
+            android:background="#dfdfdf" />
+        
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:orientation="horizontal">
+            
+            <TextView 
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"    
+		        android:text="主题："
+		        android:textSize="15dp"
+		        android:textColor="#a6a6a6"
+		        android:layout_gravity="center_vertical"/>
+            
+            <EditText
+                android:id="@+id/create_title" 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="15dp"
+                android:background="#FFFFFF"
+                android:layout_gravity="center_vertical"/>
+            
+        </LinearLayout>
+        
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2px"
+            android:layout_marginTop="1dp"
+            android:background="#dfdfdf" />
+        
+        <EditText
+            android:id="@+id/create_content" 
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:inputType="textMultiLine"
+            android:hint="写点什么吧..."
+            android:textSize="17dp"
+            android:scrollbars="vertical" 
+            android:background="#FFFFFF"/>
+   
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/layout3"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="#f3f7fa"
+        android:orientation="horizontal"
+        android:padding="15dp" >
+        
+        <LinearLayout 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+            
+            <CheckBox
+                android:id="@+id/create_reply"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"/>
+            
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textColor="#a6a6a6"
+                android:text="已读回执"/>
+            
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
