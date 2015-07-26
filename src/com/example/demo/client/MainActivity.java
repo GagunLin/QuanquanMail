@@ -83,6 +83,12 @@ public class MainActivity extends Activity {
 		tv = (TextView) (findViewById(R.id.GarbageBox).findViewById(R.id.test));
 		tv.setText(R.string.mail_garbagebox);	
 		
+		((ImageView)findViewById(R.id.ReceBox).findViewById(R.id.img1)).setImageResource(R.drawable.test_recebox);
+		((ImageView)findViewById(R.id.SendBox).findViewById(R.id.img1)).setImageResource(R.drawable.test_sendbox);
+		((ImageView)findViewById(R.id.DraftsBox).findViewById(R.id.img1)).setImageResource(R.drawable.test_draft);
+		((ImageView)findViewById(R.id.GarbageBox).findViewById(R.id.img1)).setImageResource(R.drawable.test_garbage);
+		
+		
 		findViewById(R.id.ReceBox).setOnClickListener(new ButtonListener());
 		findViewById(R.id.SendBox).setOnClickListener(new ButtonListener());
 		findViewById(R.id.DraftsBox).setOnClickListener(new ButtonListener());

@@ -69,8 +69,11 @@ public class BoxActivity extends Activity{
 			public void refresh() {
 				list.clear();
 				eu_id.clear();
-				MyThread thread2 = new MyThread();
-				thread2.start();
+				getMailList();
+//				GetMailList mailList = new GetMailList(BoxActivity.this);
+//				String jsonString = mailList.getJsonString(action);
+//				MyThread thread2 = new MyThread();
+//				thread2.start();
 			}
 			
 		});
@@ -171,37 +174,41 @@ public class BoxActivity extends Activity{
 		
 		@Override
 		public void run() {
-			GetMailList mailList = new GetMailList(BoxActivity.this);
-			String jsonString = mailList.getJsonString(action);
-			
-			try {
-				JSONArray jsonArray = new JSONArray(jsonString);
-				for (int i=0;i<jsonArray.length();i++){
-					JSONObject email = jsonArray.optJSONObject(i);
-					HashMap<String, Object> map = new HashMap<String, Object>();
-					
-					String[] temp = email.optString("e_time").split("T");
-					String[] date = temp[0].split("-");
-					date[1] = (Integer.parseInt(date[1]))+"";
-					String[] time = temp[1].split(":");
-					
-					map.put("eu_id", email.optString("eu_id"));
-					map.put("isread_ImgUrl", email.optString("isread_ImgUrl"));
-					map.put("e_title", email.optString("e_title"));
-					map.put("e_sender_UserNm", email.optString("e_sender_UserNm"));
-					map.put("e_time", date[1]+"-"+date[2]+" "+time[0]+":"+time[1]);
-					list.add(0, map);
-					
-					eu_id.add(0,email.optString("eu_id"));
-				}
+			getMailList();
+		}
+	}
+	
+	public void getMailList(){
+		GetMailList mailList = new GetMailList(BoxActivity.this);
+		String jsonString = mailList.getJsonString(action);
+		
+		try {
+			JSONArray jsonArray = new JSONArray(jsonString);
+			for (int i=0;i<jsonArray.length();i++){
+				JSONObject email = jsonArray.optJSONObject(i);
+				HashMap<String, Object> map = new HashMap<String, Object>();
 				
-				if (list.size() == 0) handler.sendEmptyMessage(NO_MAIL);
-				else handler.sendEmptyMessage(SUCCESS);
+				String[] temp = email.optString("e_time").split("T");
+				String[] date = temp[0].split("-");
+				date[1] = (Integer.parseInt(date[1]))+"";
+				String[] time = temp[1].split(":");
 				
-			} catch (JSONException e) {
-				handler.sendEmptyMessage(ERROR);
-				e.printStackTrace();
+				map.put("eu_id", email.optString("eu_id"));
+				map.put("isread_ImgUrl", email.optString("isread_ImgUrl"));
+				map.put("e_title", email.optString("e_title"));
+				map.put("e_sender_UserNm", email.optString("e_sender_UserNm"));
+				map.put("e_time", date[1]+"-"+date[2]+" "+time[0]+":"+time[1]);
+				list.add(0, map);
+				
+				eu_id.add(0,email.optString("eu_id"));
 			}
+			
+			if (list.size() == 0) handler.sendEmptyMessage(NO_MAIL);
+			else handler.sendEmptyMessage(SUCCESS);
+			
+		} catch (JSONException e) {
+			handler.sendEmptyMessage(ERROR);
+			e.printStackTrace();
 		}
 	}
 	
@@ -237,6 +244,7 @@ public class BoxActivity extends Activity{
 					break;
 					
 				case SUCCESS:
+					tv.setVisibility(View.GONE);
 					SimpleAdapter adapter = new SimpleAdapter(
 							BoxActivity.this, list, R.layout.box_item, 
 							new String[]{"isread_ImgUrl","e_title","e_sender_UserNm","e_time"}, 

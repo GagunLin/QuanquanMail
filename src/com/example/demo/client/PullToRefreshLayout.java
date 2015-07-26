@@ -122,11 +122,12 @@ public class PullToRefreshLayout extends RelativeLayout {
 
 				}
 				if (istop) {
-					if (expectY > 0) {} else {
+					if (expectY > 0) {
+					} else {
 						scrollTo(0, expectY);
 					}
 				} else {
-					
+
 				}
 				point.y = (int) ev.getY();
 
@@ -167,50 +168,53 @@ public class PullToRefreshLayout extends RelativeLayout {
 	private boolean ispull;
 	private boolean isupdownpull;
 	private boolean istop;
+	private boolean isrefreshing;
 	private static final int MIN_DIS = 20;
 	private Point point = new Point();
 
 	public void isPullType(MotionEvent ev) {
 
-		switch (ev.getActionMasked()) {
-		case MotionEvent.ACTION_DOWN:
-			point.x = (int) ev.getX();
-			point.y = (int) ev.getY();
-			super.dispatchTouchEvent(ev);
-			break;
-		case MotionEvent.ACTION_MOVE:
-			int dX = (int) Math.abs(ev.getX() - point.x);
-			int dY = (int) Math.abs(ev.getY() - point.y);
-			if (dY > MIN_DIS && dY > dX) {
-				ispull = true;
-				isupdownpull = true;
+		if (!isrefreshing) {
+			switch (ev.getActionMasked()) {
+			case MotionEvent.ACTION_DOWN:
 				point.x = (int) ev.getX();
 				point.y = (int) ev.getY();
-			} else if (dY > MIN_DIS && dY < dX) {
-				ispull = true;
+				super.dispatchTouchEvent(ev);
+				break;
+			case MotionEvent.ACTION_MOVE:
+				int dX = (int) Math.abs(ev.getX() - point.x);
+				int dY = (int) Math.abs(ev.getY() - point.y);
+				if (dY > MIN_DIS && dY > dX) {
+					ispull = true;
+					isupdownpull = true;
+					point.x = (int) ev.getX();
+					point.y = (int) ev.getY();
+				} else if (dY > MIN_DIS && dY < dX) {
+					ispull = true;
+					isupdownpull = false;
+					point.x = (int) ev.getX();
+					point.y = (int) ev.getY();
+				}
+				break;
+			case MotionEvent.ACTION_UP:
+			case MotionEvent.ACTION_CANCEL:
+				ispull = false;
 				isupdownpull = false;
-				point.x = (int) ev.getX();
-				point.y = (int) ev.getY();
+				super.dispatchTouchEvent(ev);
+				break;
+
+			default:
+				break;
 			}
-			break;
-		case MotionEvent.ACTION_UP:
-		case MotionEvent.ACTION_CANCEL:
-			ispull = false;
-			isupdownpull = false;
-			super.dispatchTouchEvent(ev);
-			break;
 
-		default:
-			break;
-		}
-
-		View firstChild = listView.getChildAt(0);
-		if (firstChild != null) {
-			int firstChildPosition = listView.getFirstVisiblePosition();
-			if (firstChildPosition == 0 && firstChild.getTop() == 0) {
-				istop = true;
-			} else {
-				istop = false;
+			View firstChild = listView.getChildAt(0);
+			if (firstChild != null) {
+				int firstChildPosition = listView.getFirstVisiblePosition();
+				if (firstChildPosition == 0 && firstChild.getTop() == 0) {
+					istop = true;
+				} else {
+					istop = false;
+				}
 			}
 		}
 	}
@@ -222,6 +226,7 @@ public class PullToRefreshLayout extends RelativeLayout {
 			publishProgress(params);
 			sleep(300);
 			if (refreshListener != null) {
+				isrefreshing = true;
 				refreshListener.refresh();
 			}
 			return null;
@@ -245,7 +250,7 @@ public class PullToRefreshLayout extends RelativeLayout {
 			mProgressBar.setVisibility(View.GONE);
 			mimageview.setVisibility(View.VISIBLE);
 			mScroller.startScroll(0, currY, 0, -currY, 300);
-
+			isrefreshing = false;
 			invalidate();
 		}
 
